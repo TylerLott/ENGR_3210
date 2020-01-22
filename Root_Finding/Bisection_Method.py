@@ -13,7 +13,6 @@ XL = -1
 XU = 0
 ES = 2
 
-
 def bisection_method(xl, xu, es, imax):
     # initialize variables
     iter = 0

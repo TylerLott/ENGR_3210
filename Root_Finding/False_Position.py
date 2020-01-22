@@ -1,14 +1,23 @@
 # applies false position method and prints answer to screen
 
+import math
+
 # Question 1
 # XL = 0.5
 # XU = 1
 # ES = 5
 
 # Question 2
-XL = -1
-XU = 0
-ES = 2
+# XL = -1
+# XU = 0
+# ES = 2
+
+# Question 3
+# equation: v(m) = ((9.81 * m) / 15) * (1 - e**((-15 / m) * 10) - 36) = 0
+XL = 20
+XU = 80
+ES = .1
+
 
 
 def function(x):
@@ -16,7 +25,10 @@ def function(x):
     # return (x**5) - (10 * x**4) + (46 * x**3) - (90 * x**2) + (85 * x) - 31
 
     # Question 2
-    return -(3 * x**3) + (20 * x**2) - (20 * x) - 12
+    # return -(3 * x**3) + (20 * x**2) - (20 * x) - 12
+
+    # Question 3
+    return (.654 * x) * (1 - math.pow(math.e, (-(15 / x) * 10))) - 36
 
 
 def false_position(xl, xu, es, imax):

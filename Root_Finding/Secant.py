@@ -6,7 +6,7 @@
 
 XL = 5
 XU = 6
-ES = .01
+ES = .001
 
 
 def function(x):
