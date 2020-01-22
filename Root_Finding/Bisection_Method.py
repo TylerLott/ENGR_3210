@@ -49,5 +49,5 @@ def bisection_method(xl, xu, es, imax):
 
 
 if __name__ == "__main__":
-    result = bisectionMethod(XL, XU, ES, 10000)
+    result = bisection_method(XL, XU, ES, 10000)
     print(result)
