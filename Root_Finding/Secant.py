@@ -15,26 +15,38 @@ def function(x):
 
 
 def secant(xl, xu, es, imax):
+    # initialize variables
     iter = 0
     xr = xl
     ea = es
 
+    # iterative loop that runs until ea is less than es OR iterations are more than imax
     while iter < imax:
 
+        # keep xr_old to calculate error
         xr_old = xr
+
+        # calculate new xr using the secant of the two given points
         xr = xl - (((xu - xl) * function(xl)) / (function(xu) - function(xl)))
+
+        # up the iterator by one
         iter += 1
 
+        # IF the average of the first and new point is less than the second point and new point
+        # THEN change the second point to the new point
+        # ELSE change the first point to the new point
         if xr + xl < xr + xu:
             xu = xr
         else:
             xl = xr
 
+        # calculate the error
         if xr != 0:
             ea = abs((xr - xr_old) / xr) * 100
         else:
             print("error")
 
+        # if the error is less than the threshold determined then break
         if ea < es:
             break
     return xr

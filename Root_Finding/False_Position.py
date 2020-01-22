@@ -20,16 +20,27 @@ def function(x):
 
 
 def false_position(xl, xu, es, imax):
+    # initialize variables
     iter = 0
     xr = xl
     ea = es
 
+    # iterative loop that runs until ea is less than es OR iterations are more than imax
     while iter < imax:
 
+        # keep xr_old to calculate error
         xr_old = xr
+
+        # calculate new xr using the secant of the two given points
         xr = xl - (((xu - xl) * function(xl)) / (function(xu) - function(xl)))
+
+        # up the iterator by one
         iter += 1
 
+        # IF the sum of the functions of the first point and new point is less than zero
+        # THEN the second point is set to the new point
+        # ELSE the first point is set to the new point
+        # ELSE the root is perfectly found and error is set to zero
         if function(xr) * function(xl) < 0:
             xu = xr
         elif function(xr) * function(xl) > 0:
@@ -37,11 +48,13 @@ def false_position(xl, xu, es, imax):
         else:
             ea = 0
 
+        # calculate the error
         if xr != 0:
             ea = abs((xr - xr_old) / xr) * 100
         else:
             print("error")
 
+        # if the error is less than the input threshold then break
         if ea < es:
             break
 
