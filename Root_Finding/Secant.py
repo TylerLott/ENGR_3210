@@ -6,7 +6,7 @@
 
 XL = 5
 XU = 6
-ES = .001
+ES = .1
 
 
 def function(x):
@@ -49,9 +49,9 @@ def secant(xl, xu, es, imax):
         # if the error is less than the threshold determined then break
         if ea < es:
             break
-    return xr
+    return xr, xr_old
 
 
 if __name__ == "__main__":
-    result = secant(XL, XU, ES, 100000000)
-    print(result)
+    result, result_old = secant(XL, XU, ES, 100000000)
+    print(result, result_old)
