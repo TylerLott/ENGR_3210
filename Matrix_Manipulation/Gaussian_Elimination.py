@@ -7,32 +7,6 @@ def gauss_elim(a, b):
 
     a, b = upper_triangle(a, b)
 
-    # n = len(a)
-    # k = 0
-    # while k < n:
-    #     i = k+1
-    #     while i < n:
-    #         factor = a[i][k] / a[k][k]
-    #         print(factor)
-    #
-    #         # partial pivot
-    #         if factor >= (a[k][i] / a[i][i]):
-    #             tempA = a[k]
-    #             a[k] = a[i]
-    #             a[i] = tempA
-    #             tempB = b[k]
-    #             b[k] = b[i]
-    #             b[i] = tempB
-    #             factor = a[i][k] / a[k][k]
-    #
-    #         j = k+1
-    #         while j < n:
-    #             a[i][j] = a[i][j] - factor * a[k][j]
-    #             j += 1
-    #         b[i] = b[i] - factor * b[k]
-    #         i += 1
-    #     k += 1
-
     # back substitution
     n = len(a)
     i = n-1
