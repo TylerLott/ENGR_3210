@@ -5,8 +5,6 @@
 def gauss_elim(a, b):
     # forward elimination
 
-    a, b = upper_triangle(a, b)
-
     # back substitution
     n = len(a)
     i = n-1
@@ -34,7 +32,7 @@ def upper_triangle(a, b):
             factor = a[i][k] / a[k][k]
 
             # partial pivot
-            if factor >= (a[k][i] / a[i][i]):
+            if abs(factor) < abs(a[k][i] / a[i][i]):
                 tempA = a[k]
                 a[k] = a[i]
                 a[i] = tempA
@@ -55,13 +53,20 @@ def upper_triangle(a, b):
 
 
 if __name__ == "__main__":
-    arr = [[1, 2, -1], [5, 2, 2], [-3, 5, -1]]
-    c = [2, 9, 1]
+    # arr = [[1, 2, -1], [5, 2, 2], [-3, 5, -1]]
+    # c = [2, 9, 1]
+
+    arr = [[1, 1],
+           [5.652233, .1769212]]
+
+    c = [10, 90]
 
     # arr = [[10, 2, -1], [-3, -6, 2], [1, 1, 5]]
     # c = [27, -61.5, -21.5]
 
-    ans = gauss_elim(arr, c)
+    a, b = upper_triangle(arr, c)
+
+    ans = gauss_elim(a, b)
     print(ans)
 
 
